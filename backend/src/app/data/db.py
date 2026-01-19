@@ -1,24 +1,14 @@
+import os
 import psycopg2
+from psycopg2.extensions import connection as PgConnection
 
 class Database:
     def __init__(self):
-        self.params = {
-            "dbname": "namepicker",
-            "user": "postgres",
-            "password": "postgres",
-            "host": "localhost",
-            "port": "5432"
-        }
+        self.dsn = os.getenv("DATABASE_URL")
         self.connection = None
 
-    def get_connection(self):
-        try:
-            if self.connection is None or self.connection.closed != 0:
-                self.connection = psycopg2.connect(**self.params)
-            return self.connection
-        except Exception as e:
-            print(f"Fehler beim Verbindungsaufbau: {e}")
-            return None
+    def connect(self) -> PgConnection:
+        return psycopg2.connect(self.dsn)
 
     def close_connection(self):
         if self.connection:

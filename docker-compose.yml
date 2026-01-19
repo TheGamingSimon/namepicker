@@ -15,19 +15,21 @@ services:
       retries: 10
 
   backend:
-  build: ./backend
-  environment:
-    DATABASE_URL: postgresql://postgres:postgres@db:5432/namepicker
-  depends_on:
-    db:
-      condition: service_healthy
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "8324:80"
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/namepicker
     depends_on:
-      - backend
+      db:
+        condition: service_healthy
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - "8324:80"
+  #   depends_on:
+  #     - backend
 
 volumes:
   pgdata:
