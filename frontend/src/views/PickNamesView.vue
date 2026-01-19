@@ -18,8 +18,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import api from '@/services/api'
-import ClassSelector from '@/components/ClassSelector.vue'
+import api from '../services/api'
+import ClassSelector from '../components/ClassSelector.vue'
 
 const selectedClassId = ref(null)
 const count = ref(1)
@@ -39,3 +39,4 @@ async function pickNames() {
   }
 }
 </script>
+
