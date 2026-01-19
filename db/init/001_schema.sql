@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS classes (
 
 CREATE TABLE IF NOT EXISTS names (
   id SERIAL PRIMARY KEY,
-  value TEXT NOT NULL,
-  class_id INTEGER NOT NULL REFERENCES classes(id) ON DELETE RESTRICT,
-  CONSTRAINT uq_name_per_class UNIQUE (class_id, value)
+  vorname TEXT NOT NULL,
+  nachname TEXT NOT NULL,
+  class_id INTEGER NULL REFERENCES classes(id) ON DELETE SET NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_names_class_id ON names(class_id);
