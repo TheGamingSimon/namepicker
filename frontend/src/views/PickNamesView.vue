@@ -5,11 +5,10 @@
 
   <input
     type="number"
-    v-model="count"
+    v-model.number="count"
     min="1"
     placeholder="Anzahl Namen"
   />
-
   <button @click="pickNames">Picken</button>
 
   <ul>
@@ -19,19 +18,25 @@
 
 <script setup>
 import { ref } from 'vue'
-import ClassSelector from '../components/ClassSelector.vue'
 import api from '../services/api'
+import ClassSelector from '../components/ClassSelector.vue'
 
 const selectedClassId = ref(null)
 const count = ref(1)
 const pickedNames = ref([])
 
 async function pickNames() {
-  const res = await api.post(
-    `/classes/${selectedClassId.value}/pick`,
-    null,
-    { params: { count: count.value } }
-  )
-  pickedNames.value = res.data
+  if (!selectedClassId.value || count.value < 1) return
+  try {
+    const res = await api.post(
+      `/classes/${selectedClassId.value}/pick`,
+      null,
+      { params: { count: count.value } }
+    )
+    pickedNames.value = res.data
+  } catch (err) {
+    console.error('Fehler beim Picken:', err)
+  }
 }
 </script>
+

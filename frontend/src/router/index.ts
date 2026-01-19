@@ -3,11 +3,13 @@ import PickNamesView from '@/views/PickNamesView.vue'
 import ManageClassesView from '@/views/ManageClassesView.vue'
 
 const routes = [
-  { path: '/', component: PickNamesView },
-  { path: '/classes', component: ManageClassesView }
+  { path: '/', name: 'Home', component: PickNamesView },
+  { path: '/classes', name: 'Classes', component: ManageClassesView }
 ]
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+export default router
