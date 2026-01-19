@@ -27,6 +27,12 @@ const pickedNames = ref([])
 
 async function pickNames() {
   if (!selectedClassId.value || count.value < 1) return
+  
+  if (count.value > pickedNames.value.length && pickedNames.value.length > 0) {
+    alert('Nicht genügend Schüler vorhanden')
+    return
+  }
+
   try {
     const res = await api.post(
       `/classes/${selectedClassId.value}/pick`,
