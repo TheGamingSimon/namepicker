@@ -1,0 +1,22 @@
+INSERT INTO names (vorname, nachname, class_id)
+VALUES
+  ('Simon', 'Pichler', NULL),
+  ('Lea', 'Müller', NULL),
+  ('Noah', 'Meier', NULL),
+  ('Emma', 'Schneider', NULL),
+  ('Luca', 'Weber', NULL),
+  ('Mia', 'Keller', NULL),
+  ('Jonas', 'Fischer', NULL),
+  ('Anna', 'Huber', NULL),
+  ('Ben', 'Wagner', NULL),
+  ('Sofia', 'Brunner', NULL),
+  ('David', 'Baumann', NULL),
+  ('Laura', 'Steiner', NULL),
+  ('Finn', 'Gerber', NULL),
+  ('Nina', 'Hofer', NULL),
+  ('Paul', 'Roth', NULL),
+  ('Lena', 'Koch', NULL),
+  ('Tim', 'Schmid', NULL),
+  ('Julia', 'Bieri', NULL),
+  ('Max', 'Graf', NULL),
+  ('Sarah', 'Zimmermann', NULL);
