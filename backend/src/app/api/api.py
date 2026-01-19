@@ -1,11 +1,15 @@
 from fastapi import APIRouter
+from src.app.data.crud import ClassRepository
+from src.app.data.db import Database
 
 router = APIRouter()
-
+db = Database()
+klasse = ClassRepository(db)
 # Klassen
 @router.get("/classes")
 def get_classes():
-    return {"classes": []}
+    class_names = klasse.get_classes()
+    return {"classes": class_names}
 
 @router.get("/classes/{id}")
 def get_class(id: int):

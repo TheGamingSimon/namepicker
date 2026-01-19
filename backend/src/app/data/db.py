@@ -1,6 +1,6 @@
 import psycopg2
 
-class DatabaseManager:
+class Database:
     def __init__(self):
         self.params = {
             "dbname": "namepicker",

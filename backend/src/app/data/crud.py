@@ -20,3 +20,18 @@ class SchuelerRepository:
                 cursor.execute("SELECT * FROM Schueler")
                 return cursor.fetchall()
         return []
+
+
+class ClassRepository:
+    def __init__(self, db_manager):
+        self.db_manager = db_manager
+
+    def get_classes(self):
+        conn = self.db_manager.get_connection()
+        if conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name FROM classes")
+                    return cursor.fetchall()
+            except Exception as e:
+                conn.rollback()
