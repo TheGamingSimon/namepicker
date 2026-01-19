@@ -14,9 +14,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import api from '../services/api'
-import AddClassForm from '@/components/AddClassForm.vue'
-import StudentList from '@/components/StudentList.vue'
-import AddStudentForm from '@/components/AddStudentForm.vue'
+import AddClassForm from '../components/AddClassForm.vue'
+import StudentList from '../components/Studenlist.vue'
+import AddStudentForm from '../components/AddStudentForm.vue'
 
 const classes = ref([])
 
